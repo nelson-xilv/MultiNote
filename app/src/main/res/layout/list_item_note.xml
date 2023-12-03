@@ -1,53 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp"
-    android:maxHeight="300dp"
-    android:background="@drawable/background_list_item">
+    android:layout_margin="8dp"
+    app:cardCornerRadius="14dp">
 
-    <TextView
-        android:id="@+id/note_title_text_view"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="The name of note"
-        android:text=""
-        android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
-        android:lines="1"
-        android:ellipsize="end"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/note_text_view"/>
+        android:padding="8dp">
 
-    <TextView
-        android:id="@+id/note_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        tools:text="@tools:sample/lorem/random"
-        android:text=""
-        android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
-        android:maxLines="5"
-        android:ellipsize="end"
-        android:textColor="@color/gray500"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/note_title_text_view"/>
+        <TextView
+            android:id="@+id/note_title_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="The name of note"
+            android:text=""
+            android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+            android:lines="1"
+            android:ellipsize="end"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/note_text_view"/>
 
-    <TextView
-        android:id="@+id/note_date_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        tools:text="21.11.2023"
-        android:text=""
-        android:textStyle="bold"
-        android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/note_text_view"/>
+        <TextView
+            android:id="@+id/note_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            tools:text="@tools:sample/lorem/random"
+            android:text=""
+            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+            android:maxLines="5"
+            android:ellipsize="end"
+            android:textColor="@color/gray500"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/note_title_text_view"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/note_date_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            tools:text="21.11.2023"
+            android:text=""
+            android:textStyle="bold"
+            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/note_text_view"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

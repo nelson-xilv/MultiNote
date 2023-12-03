@@ -8,9 +8,9 @@ import java.text.SimpleDateFormat
 import java.util.Locale
 
 class NoteHolder(
-    val binding: ListItemNoteBinding
+    private val binding: ListItemNoteBinding
 ) : RecyclerView.ViewHolder(binding.root) {
-    fun bind(note: Note, onNoteClicked: (noteId: Long) -> Unit) {
+    fun onBind(note: Note, onNoteClicked: (noteId: Long) -> Unit) {
         val formattedDate = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault())
         val date = formattedDate.format(note.date).toString()
 
@@ -42,7 +42,7 @@ class NoteListAdapter(
 
     override fun onBindViewHolder(holder: NoteHolder, position: Int) {
         val note = notes[position]
-        holder.bind(note, onNoteClicked)
+        holder.onBind(note, onNoteClicked)
     }
 
     override fun getItemCount() = notes.size
