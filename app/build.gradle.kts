@@ -43,6 +43,8 @@ dependencies {
 
     implementation(libs.bundles.androidx)
     implementation(libs.material)
+    implementation(libs.circle.imageview)
+    implementation(libs.bundles.coroutines)
 
     testImplementation(libs.junit)
 
