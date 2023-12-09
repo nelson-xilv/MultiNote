@@ -9,6 +9,9 @@
 /.idea/assetWizardSettings.xml
 /.idea/discord.xml
 /.idea/render.experimental.xml
+/.idea/deploymentTargetDropDown.xml
+/.idea/misc.xml
+/.idea/deploymentTargetSelector.xml
 .DS_Store
 /build
 /captures
