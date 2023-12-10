@@ -1,4 +1,4 @@
-package com.nelsonxilv.notesapp
+package com.nelsonxilv.notesapp.application
 
 import android.app.Application
 import com.nelsonxilv.notesapp.model.repository.NoteRepository
