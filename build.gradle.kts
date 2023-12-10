@@ -6,6 +6,10 @@ plugins {
 buildscript {
     repositories {
         mavenCentral()
+        google()
+    }
+    dependencies {
+        classpath(libs.androidx.navigation.safeargs)
     }
 }
 true
