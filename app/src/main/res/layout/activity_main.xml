@@ -37,7 +37,9 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container_view"
-        android:name="com.nelsonxilv.notesapp.screens.NoteDetailFragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_graph"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="14dp"

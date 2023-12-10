@@ -11,10 +11,15 @@ import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.nelsonxilv.notesapp.MainActivity
 import com.nelsonxilv.notesapp.R
 import com.nelsonxilv.notesapp.databinding.FragmentNoteDetailBinding
+import kotlinx.coroutines.launch
 
 class NoteDetailFragment : Fragment() {
 
@@ -23,6 +28,12 @@ class NoteDetailFragment : Fragment() {
         get() = checkNotNull(_binding) {
             "Cannot access binding."
         }
+
+    private val args: NoteDetailFragmentArgs by navArgs()
+
+    private val noteDetailViewModel: NoteDetailViewModel by viewModels {
+        NoteDetailViewModelFactory(args.noteId)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,16 +50,21 @@ class NoteDetailFragment : Fragment() {
 
         val menuHost: MenuHost = requireActivity()
         addMenuToolbar(menuHost)
+
         val toolbar = (activity as MainActivity?)?.supportActionBar
         setToolbar(toolbar)
 
         binding.apply {
             titleEditText.doOnTextChanged { text, _, _, _ ->
-
+                noteDetailViewModel.updateNote { oldNote ->
+                    oldNote.copy(title = text.toString())
+                }
             }
 
             textEditText.doOnTextChanged { text, _, _, _ ->
-
+                noteDetailViewModel.updateNote { oldNote ->
+                    oldNote.copy(text = text.toString())
+                }
             }
         }
     }
@@ -67,7 +83,12 @@ class NoteDetailFragment : Fragment() {
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
                 return when (menuItem.itemId) {
                     R.id.delete_note -> {
-                        TODO("back")
+                        viewLifecycleOwner.lifecycleScope.launch {
+                            noteDetailViewModel.note.value?.let {
+                                noteDetailViewModel.deleteNote(it)
+                            }
+                        }
+                        findNavController().popBackStack()
                         true
                     }
                     else -> false

@@ -13,11 +13,14 @@ import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.nelsonxilv.notesapp.NoteListAdapter
-import com.nelsonxilv.notesapp.NotesListViewModel
 import com.nelsonxilv.notesapp.R
 import com.nelsonxilv.notesapp.databinding.FragmentNotesListBinding
+import kotlinx.coroutines.launch
 
 class NotesListFragment : Fragment() {
 
@@ -44,17 +47,28 @@ class NotesListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val notes = notesListViewModel.notes
-        binding.notesRecyclerView.adapter = NoteListAdapter(notes) {
-            Toast.makeText(
-                context,
-                "Note clicked",
-                Toast.LENGTH_SHORT
-            ).show()
-        }
-
         val menuHost: MenuHost = requireActivity()
+        addMenuToolbar(menuHost)
 
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                notesListViewModel.notes.collect { notes ->
+                    binding.notesRecyclerView.adapter = NoteListAdapter(notes) { noteId ->
+                        findNavController().navigate(
+                            NotesListFragmentDirections.showNoteDetail(noteId)
+                        )
+                    }
+                }
+            }
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    private fun addMenuToolbar(menuHost: MenuHost) {
         menuHost.addMenuProvider(object : MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
                 menuInflater.inflate(R.menu.fragment_notes_list, menu)
@@ -76,11 +90,6 @@ class NotesListFragment : Fragment() {
             }
 
         }, viewLifecycleOwner, Lifecycle.State.RESUMED)
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 
 }
