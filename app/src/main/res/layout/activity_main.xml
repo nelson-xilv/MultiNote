@@ -37,7 +37,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container_view"
-        android:name="com.example.notesapp.NoteDetailFragment"
+        android:name="com.nelsonxilv.notesapp.screens.NoteDetailFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="14dp"

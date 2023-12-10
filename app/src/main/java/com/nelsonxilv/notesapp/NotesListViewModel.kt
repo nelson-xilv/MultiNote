@@ -1,6 +1,7 @@
-package com.example.notesapp
+package com.nelsonxilv.notesapp
 
 import androidx.lifecycle.ViewModel
+import com.nelsonxilv.notesapp.model.Note
 import java.util.Date
 
 class NotesListViewModel : ViewModel() {

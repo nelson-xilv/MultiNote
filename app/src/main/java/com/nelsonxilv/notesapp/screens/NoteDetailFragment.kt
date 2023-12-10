@@ -1,4 +1,4 @@
-package com.example.notesapp
+package com.nelsonxilv.notesapp.screens
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,7 +12,9 @@ import androidx.core.view.MenuProvider
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
-import com.example.notesapp.databinding.FragmentNoteDetailBinding
+import com.nelsonxilv.notesapp.MainActivity
+import com.nelsonxilv.notesapp.R
+import com.nelsonxilv.notesapp.databinding.FragmentNoteDetailBinding
 
 class NoteDetailFragment : Fragment() {
 

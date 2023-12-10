@@ -1,4 +1,4 @@
-package com.example.notesapp
+package com.nelsonxilv.notesapp.screens
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,7 +14,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.notesapp.databinding.FragmentNotesListBinding
+import com.nelsonxilv.notesapp.NoteListAdapter
+import com.nelsonxilv.notesapp.NotesListViewModel
+import com.nelsonxilv.notesapp.R
+import com.nelsonxilv.notesapp.databinding.FragmentNotesListBinding
 
 class NotesListFragment : Fragment() {
 

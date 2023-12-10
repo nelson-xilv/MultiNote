@@ -1,9 +1,10 @@
-package com.example.notesapp
+package com.nelsonxilv.notesapp
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.notesapp.databinding.ListItemNoteBinding
+import com.nelsonxilv.notesapp.databinding.ListItemNoteBinding
+import com.nelsonxilv.notesapp.model.Note
 import java.text.SimpleDateFormat
 import java.util.Locale
 

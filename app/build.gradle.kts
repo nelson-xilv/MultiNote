@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.notesapp"
+    namespace = "com.nelsonxilv.notesapp"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.notesapp"
+        applicationId = "com.nelsonxilv.notesapp"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -43,10 +43,13 @@ dependencies {
 
     implementation(libs.bundles.androidx)
     implementation(libs.material)
+
     implementation(libs.circle.imageview)
     implementation(libs.bundles.coroutines)
+
     implementation(libs.bundles.room)
     ksp(libs.room.compiler)
+
     implementation(libs.bundles.navigation)
     implementation(libs.bundles.retrofit)
 

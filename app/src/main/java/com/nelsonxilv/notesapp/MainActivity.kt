@@ -1,8 +1,8 @@
-package com.example.notesapp
+package com.nelsonxilv.notesapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.notesapp.databinding.ActivityMainBinding
+import com.nelsonxilv.notesapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
